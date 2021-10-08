@@ -1,26 +1,26 @@
-const express = require('express')
+// const express = require('express')
 
-const router = express.Router()
+// const router = express.Router()
 
-router.get('/', (req, res) => {
-  res.json([
-    {
-      name: 'Ana',
+// router.get('/', (req, res) => {
+//   res.json([
+//     {
+//       name: 'Ana',
 
-    },
-    {
-      name: 'Juan',
+//     },
+//     {
+//       name: 'Juan',
 
-    }
-  ])
-})
+//     }
+//   ])
+// })
 
-router.get('/filter', (req, res) => {
-  res.json(
-    {
-      name: 'Ana',
+// router.get('/filter', (req, res) => {
+//   res.json(
+//     {
+//       name: 'Ana',
 
-    })
-})
+//     })
+// })
 
-module.exports = router
+// module.exports = router

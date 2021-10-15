@@ -1,12 +1,12 @@
-const express = require('express')
+ const express = require('express')
  const router = express.Router()
- const Supplier = require('../models/supplier')
+ const User = require('../models/user')
 
  router.get('/', (req, res) => {
    try {
      res.json({
-       name: 'Roberto',
-       company: 'Purina'
+       name: 'Madeline',
+       lastName: 'Escoto'
 
      })
 
@@ -16,5 +16,7 @@ const express = require('express')
   })
 
   module.exports = router
+
+
 
 

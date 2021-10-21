@@ -1,12 +1,12 @@
 const express = require('express')
  const router = express.Router()
- const Vacunation = require('../models/vacunation')
+ const Sale = require('../models/sale')
 
  router.get('/', (req, res) => {
    try {
      res.json({
-       name: 'Pulgas',
-       description: 'Ayuda a combatir las pulgas'
+       price: 500,
+       description: 'Compra de alimento para perro'
 
      })
 

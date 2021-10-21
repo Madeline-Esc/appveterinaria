@@ -4,8 +4,7 @@ const Schema = mongoose.Schema
 const serviceSchema = new Schema({
  nameservice: String,
  duration: {type: String, default: '' },
- price: {type: Number},
-actualVacunation: [{type: Schema.Types.ObjectId, ref: 'vacunation'}]
+ price: {type: Number}
 },{
   timestamps: true
 })

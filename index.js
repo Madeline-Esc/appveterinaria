@@ -2,8 +2,9 @@ const routerApi = require('./routes')
 const express = require('express')
 const app = express()
 const { config } = require('./config/index')
+const passport = require('passport')
 
-
+app.use(passport.initialize)
 const port = config.port
 
 const mongoose = require('mongoose')
@@ -19,7 +20,7 @@ mongoose.connect(MONGO_URI,
   { useNewUrlParser: true, useUnifiedTopology: true}
 ).then(()=> console.log('Ya estamos conectados!!')).catch(e=>console.log(e))
 
-
+require('./utils/auth')
 
 app.get('/',(req, res) =>{
   res.send('¡Bienvenidos a su centro de atención a mascotas!')

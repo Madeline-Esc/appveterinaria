@@ -1,11 +1,8 @@
 const express = require('express')
-const passport = require('passport')
- const router = express.Router()
- const Service = require('../models/service')
+const router = express.Router()
+const Service = require('../models/service')
 
- router.get('/',
-  passport.authenticate('jwt', {session:false}),
- (req, res) => {
+ router.get('/', (req, res) => {
    try {
      res.json({
        name: 'Vacuna Mensual',

@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const { config } = require('./config/index')
 const passport = require('passport')
-const { checkApiKey } = require('./middleware/auth.handler')
+
 
 app.use(passport.initialize())
 const port = config.port
@@ -23,7 +23,7 @@ mongoose.connect(MONGO_URI,
 
 require('./utils/auth')
 
-app.get('/',checkApiKey,(req, res) =>{
+app.get('/', (req, res) =>{
   res.send('¡Bienvenidos a su centro de atención a mascotas!')
 })
 

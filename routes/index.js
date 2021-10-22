@@ -11,11 +11,11 @@ const { checkApiKey } = require('../middleware/auth.handler')
 function routerApi(app){
 app.use(express.json())
 app.use('/auth', authRoute)
-app.use('/articulos', itemsRoute)
-app.use('/usuarios', userRoute)
+app.use('/articulos', checkApiKey, itemsRoute)
+app.use('/usuarios', checkApiKey, userRoute)
 app.use('/proveedores', checkApiKey, supplierRoute)
 app.use('/servicios', checkApiKey, servicesRoute)
-app.use('/ventas', salesRoute)
+app.use('/ventas', checkApiKey, salesRoute)
 
 
 }

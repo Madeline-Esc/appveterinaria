@@ -4,7 +4,7 @@ const app = express()
 const { config } = require('./config/index')
 const passport = require('passport')
 
-app.use(passport.initialize)
+app.use(passport.initialize())
 const port = config.port
 
 const mongoose = require('mongoose')

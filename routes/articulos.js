@@ -1,8 +1,11 @@
 const express = require('express')
 const router = express.Router()
+const passport = require('passport')
 const Item = require('../models/item')
 
-router.get('/', (req, res) => {
+router.get('/',
+passport.authenticate('jwt', {session:false}),
+(req, res) => {
   try {
     res.json({
       name: 'Transportadora para Perros',

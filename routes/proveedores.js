@@ -1,6 +1,6 @@
 const express = require('express')
- const router = express.Router()
- const Supplier = require('../models/supplier')
+const router = express.Router()
+const Supplier = require('../models/supplier')
 
  router.get('/', (req, res) => {
    try {

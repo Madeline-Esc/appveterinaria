@@ -9,7 +9,9 @@ async function createItem(name, price, stock, description){
       description
     })
 
+
     console.log(itemCreated)
+
     return itemCreated
 }   catch(error){
     return {message: error.message}

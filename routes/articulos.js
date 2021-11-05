@@ -1,21 +1,29 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
-const Item = require('../models/item')
+const { ctrlSelectItem } = require('../controllers/articulos/ctrlSelectItem')
+const { ctrlUpdateItem } = require('../controllers/articulos/ctrlUpdateItem')
+const { ctrlCreateItem } = require('../controllers/articulos/ctrlCreateItem')
+const { ctrlDeleteItem } = require('../controllers/articulos/ctrlDeleteItem')
 
 router.get('/',
-passport.authenticate('jwt', {session:false}),
-(req, res) => {
-  try {
-    res.json({
-      name: 'Transportadora para Perros',
-      price: '1500'
+  passport.authenticate('jwt', {session:false}),
+  ctrlSelectItem
+)
 
-    })
+router.post('/',
+  passport.authenticate('jwt', {session:false}),
+  ctrlCreateItem
+)
 
-  }catch(error){
-    console.log(`Error: ${error}`)
-  }
- })
+router.put('/:_id',
+  passport.authenticate('jwt', {session:false}),
+  ctrlUpdateItem
+)
+
+router.delete('/:_id',
+  passport.authenticate('jwt', {session:false}),
+  ctrlDeleteItem
+   )
 
 module.exports = router

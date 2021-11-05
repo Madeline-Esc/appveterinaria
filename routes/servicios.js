@@ -1,21 +1,30 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
-const Service = require('../models/service')
+const { ctrlSelectService } = require('../controllers/servicios/ctrlSelectService')
+const { ctrlUpdateService } = require('../controllers/servicios/ctrlUpdateService')
+const { ctrlCreateService } = require('../controllers/servicios/ctrlCreateService')
+const { ctrlDeleteService } = require('../controllers/servicios/ctrlDeleteService')
 
- router.get('/',
- passport.authenticate('jwt', {session:false}),
- (req, res) => {
-   try {
-     res.json({
-       name: 'Vacuna Mensual',
-       price: '600'
 
-     })
+router.get('/',
+  passport.authenticate('jwt', {session:false}),
+  ctrlSelectService
+)
 
-   }catch(error){
-     console.log(`Error: ${error}`)
-   }
-  })
+router.post('/',
+  passport.authenticate('jwt', {session:false}),
+  ctrlCreateService
+)
+
+router.put('/:_id',
+  passport.authenticate('jwt', {session:false}),
+  ctrlUpdateService
+)
+
+router.delete('/:_id',
+  passport.authenticate('jwt', {session:false}),
+  ctrlDeleteService
+   )
 
   module.exports = router
